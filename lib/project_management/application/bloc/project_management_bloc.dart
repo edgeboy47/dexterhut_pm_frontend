@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dexter_pm_frontend/project_management/data/repository/repository_interface.dart';
 import 'package:dexter_pm_frontend/project_management/project/data/models/project.dart';
+import 'package:dexter_pm_frontend/project_management/tasks/data/models/task.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'project_management_event.dart';
@@ -17,7 +18,7 @@ class ProjectManagementBloc
     on<ProjectManagementEvent>(_onEvent);
   }
 
-  void _onEvent(
+  FutureOr _onEvent(
     ProjectManagementEvent event,
     Emitter<ProjectManagementState> emit,
   ) async {
@@ -29,6 +30,11 @@ class ProjectManagementBloc
         emit(const ProjectManagementState.projectsLoadInProgress());
         final projects = await repository.getUsersProjects(event.userID);
         emit(ProjectManagementState.projectsLoadSuccess(projects));
+      },
+      projectTasksLoaded: (event) async {
+        emit(const ProjectManagementState.projectTasksLoadInProgress());
+        final tasks = await repository.getTasksForProject(event.projectID);
+        emit(ProjectManagementState.projectTasksLoadSuccess(tasks));
       },
       orElse: () {},
     );

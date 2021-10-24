@@ -10,8 +10,7 @@ class Repository implements RepositoryInterface {
 
   @override
   Future<List<Task>> getTasksForProject(String projectID) {
-    // TODO: implement getTasksForProject
-    throw UnimplementedError();
+    return dataSource.getTasksForProject(projectID);
   }
 
   @override

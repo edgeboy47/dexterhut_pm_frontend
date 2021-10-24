@@ -9,9 +9,22 @@ class RemoteDataSource implements DataSourceInterface {
   final String baseURL = 'http://10.0.2.2:3000';
 
   @override
-  Future<List<Task>> getTasksForProject(String projectID) {
+  Future<List<Task>> getTasksForProject(String projectID) async {
     // TODO: implement getTasksForProject
-    throw UnimplementedError();
+    List<Task> tasks = [];
+
+    try {
+      final response =
+          await http.get(Uri.parse('$baseURL/projects/$projectID/tasks'));
+      final body = response.body;
+      final list = (jsonDecode(body) as List).cast<Map<String, dynamic>>();
+
+      tasks = List.from(list.map((e) => Task.fromJson(e)));
+      return tasks;
+    } catch (e) {
+      print('Error getting tasks for project:  $e');
+    }
+    return tasks;
   }
 
   @override

@@ -26,6 +26,12 @@ class _$ProjectManagementEventTearOff {
       userID,
     );
   }
+
+  _ProjectTasksLoaded projectTasksLoaded(String projectID) {
+    return _ProjectTasksLoaded(
+      projectID,
+    );
+  }
 }
 
 /// @nodoc
@@ -37,18 +43,21 @@ mixin _$ProjectManagementEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String userID) projectsLoaded,
+    required TResult Function(String projectID) projectTasksLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,18 +65,21 @@ mixin _$ProjectManagementEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ProjectsLoaded value) projectsLoaded,
+    required TResult Function(_ProjectTasksLoaded value) projectTasksLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,6 +143,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String userID) projectsLoaded,
+    required TResult Function(String projectID) projectTasksLoaded,
   }) {
     return started();
   }
@@ -140,6 +153,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
   }) {
     return started?.call();
   }
@@ -149,6 +163,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -162,6 +177,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ProjectsLoaded value) projectsLoaded,
+    required TResult Function(_ProjectTasksLoaded value) projectTasksLoaded,
   }) {
     return started(this);
   }
@@ -171,6 +187,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
   }) {
     return started?.call(this);
   }
@@ -180,6 +197,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -259,6 +277,7 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String userID) projectsLoaded,
+    required TResult Function(String projectID) projectTasksLoaded,
   }) {
     return projectsLoaded(userID);
   }
@@ -268,6 +287,7 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
   }) {
     return projectsLoaded?.call(userID);
   }
@@ -277,6 +297,7 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
     required TResult orElse(),
   }) {
     if (projectsLoaded != null) {
@@ -290,6 +311,7 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ProjectsLoaded value) projectsLoaded,
+    required TResult Function(_ProjectTasksLoaded value) projectTasksLoaded,
   }) {
     return projectsLoaded(this);
   }
@@ -299,6 +321,7 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
   }) {
     return projectsLoaded?.call(this);
   }
@@ -308,6 +331,7 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
     required TResult orElse(),
   }) {
     if (projectsLoaded != null) {
@@ -323,6 +347,146 @@ abstract class _ProjectsLoaded implements ProjectManagementEvent {
   String get userID;
   @JsonKey(ignore: true)
   _$ProjectsLoadedCopyWith<_ProjectsLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ProjectTasksLoadedCopyWith<$Res> {
+  factory _$ProjectTasksLoadedCopyWith(
+          _ProjectTasksLoaded value, $Res Function(_ProjectTasksLoaded) then) =
+      __$ProjectTasksLoadedCopyWithImpl<$Res>;
+  $Res call({String projectID});
+}
+
+/// @nodoc
+class __$ProjectTasksLoadedCopyWithImpl<$Res>
+    extends _$ProjectManagementEventCopyWithImpl<$Res>
+    implements _$ProjectTasksLoadedCopyWith<$Res> {
+  __$ProjectTasksLoadedCopyWithImpl(
+      _ProjectTasksLoaded _value, $Res Function(_ProjectTasksLoaded) _then)
+      : super(_value, (v) => _then(v as _ProjectTasksLoaded));
+
+  @override
+  _ProjectTasksLoaded get _value => super._value as _ProjectTasksLoaded;
+
+  @override
+  $Res call({
+    Object? projectID = freezed,
+  }) {
+    return _then(_ProjectTasksLoaded(
+      projectID == freezed
+          ? _value.projectID
+          : projectID // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
+  const _$_ProjectTasksLoaded(this.projectID);
+
+  @override
+  final String projectID;
+
+  @override
+  String toString() {
+    return 'ProjectManagementEvent.projectTasksLoaded(projectID: $projectID)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProjectTasksLoaded &&
+            (identical(other.projectID, projectID) ||
+                other.projectID == projectID));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, projectID);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ProjectTasksLoadedCopyWith<_ProjectTasksLoaded> get copyWith =>
+      __$ProjectTasksLoadedCopyWithImpl<_ProjectTasksLoaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String userID) projectsLoaded,
+    required TResult Function(String projectID) projectTasksLoaded,
+  }) {
+    return projectTasksLoaded(projectID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
+  }) {
+    return projectTasksLoaded?.call(projectID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
+    required TResult orElse(),
+  }) {
+    if (projectTasksLoaded != null) {
+      return projectTasksLoaded(projectID);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ProjectsLoaded value) projectsLoaded,
+    required TResult Function(_ProjectTasksLoaded value) projectTasksLoaded,
+  }) {
+    return projectTasksLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
+  }) {
+    return projectTasksLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
+    required TResult orElse(),
+  }) {
+    if (projectTasksLoaded != null) {
+      return projectTasksLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProjectTasksLoaded implements ProjectManagementEvent {
+  const factory _ProjectTasksLoaded(String projectID) = _$_ProjectTasksLoaded;
+
+  String get projectID;
+  @JsonKey(ignore: true)
+  _$ProjectTasksLoadedCopyWith<_ProjectTasksLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -347,6 +511,20 @@ class _$ProjectManagementStateTearOff {
   _ProjectsLoadFailure projectsLoadFailure() {
     return const _ProjectsLoadFailure();
   }
+
+  _ProjectTasksLoadInProgress projectTasksLoadInProgress() {
+    return const _ProjectTasksLoadInProgress();
+  }
+
+  _ProjectTasksLoadSuccess projectTasksLoadSuccess(List<Task> tasks) {
+    return _ProjectTasksLoadSuccess(
+      tasks,
+    );
+  }
+
+  _ProjectTasksLoadFailure projectTasksLoadFailure() {
+    return const _ProjectTasksLoadFailure();
+  }
 }
 
 /// @nodoc
@@ -360,6 +538,9 @@ mixin _$ProjectManagementState {
     required TResult Function() projectsLoadInProgress,
     required TResult Function(List<Project> projects) projectsLoadSuccess,
     required TResult Function() projectsLoadFailure,
+    required TResult Function() projectTasksLoadInProgress,
+    required TResult Function(List<Task> tasks) projectTasksLoadSuccess,
+    required TResult Function() projectTasksLoadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -368,6 +549,9 @@ mixin _$ProjectManagementState {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -376,6 +560,9 @@ mixin _$ProjectManagementState {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -386,6 +573,12 @@ mixin _$ProjectManagementState {
         projectsLoadInProgress,
     required TResult Function(_ProjectsLoadSuccess value) projectsLoadSuccess,
     required TResult Function(_ProjectsLoadFailure value) projectsLoadFailure,
+    required TResult Function(_ProjectTasksLoadInProgress value)
+        projectTasksLoadInProgress,
+    required TResult Function(_ProjectTasksLoadSuccess value)
+        projectTasksLoadSuccess,
+    required TResult Function(_ProjectTasksLoadFailure value)
+        projectTasksLoadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -394,6 +587,10 @@ mixin _$ProjectManagementState {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -402,6 +599,10 @@ mixin _$ProjectManagementState {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -467,6 +668,9 @@ class _$_Initial implements _Initial {
     required TResult Function() projectsLoadInProgress,
     required TResult Function(List<Project> projects) projectsLoadSuccess,
     required TResult Function() projectsLoadFailure,
+    required TResult Function() projectTasksLoadInProgress,
+    required TResult Function(List<Task> tasks) projectTasksLoadSuccess,
+    required TResult Function() projectTasksLoadFailure,
   }) {
     return initial();
   }
@@ -478,6 +682,9 @@ class _$_Initial implements _Initial {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
   }) {
     return initial?.call();
   }
@@ -489,6 +696,9 @@ class _$_Initial implements _Initial {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -505,6 +715,12 @@ class _$_Initial implements _Initial {
         projectsLoadInProgress,
     required TResult Function(_ProjectsLoadSuccess value) projectsLoadSuccess,
     required TResult Function(_ProjectsLoadFailure value) projectsLoadFailure,
+    required TResult Function(_ProjectTasksLoadInProgress value)
+        projectTasksLoadInProgress,
+    required TResult Function(_ProjectTasksLoadSuccess value)
+        projectTasksLoadSuccess,
+    required TResult Function(_ProjectTasksLoadFailure value)
+        projectTasksLoadFailure,
   }) {
     return initial(this);
   }
@@ -516,6 +732,10 @@ class _$_Initial implements _Initial {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
   }) {
     return initial?.call(this);
   }
@@ -527,6 +747,10 @@ class _$_Initial implements _Initial {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -585,6 +809,9 @@ class _$_ProjectsLoadInProgress implements _ProjectsLoadInProgress {
     required TResult Function() projectsLoadInProgress,
     required TResult Function(List<Project> projects) projectsLoadSuccess,
     required TResult Function() projectsLoadFailure,
+    required TResult Function() projectTasksLoadInProgress,
+    required TResult Function(List<Task> tasks) projectTasksLoadSuccess,
+    required TResult Function() projectTasksLoadFailure,
   }) {
     return projectsLoadInProgress();
   }
@@ -596,6 +823,9 @@ class _$_ProjectsLoadInProgress implements _ProjectsLoadInProgress {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
   }) {
     return projectsLoadInProgress?.call();
   }
@@ -607,6 +837,9 @@ class _$_ProjectsLoadInProgress implements _ProjectsLoadInProgress {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
     required TResult orElse(),
   }) {
     if (projectsLoadInProgress != null) {
@@ -623,6 +856,12 @@ class _$_ProjectsLoadInProgress implements _ProjectsLoadInProgress {
         projectsLoadInProgress,
     required TResult Function(_ProjectsLoadSuccess value) projectsLoadSuccess,
     required TResult Function(_ProjectsLoadFailure value) projectsLoadFailure,
+    required TResult Function(_ProjectTasksLoadInProgress value)
+        projectTasksLoadInProgress,
+    required TResult Function(_ProjectTasksLoadSuccess value)
+        projectTasksLoadSuccess,
+    required TResult Function(_ProjectTasksLoadFailure value)
+        projectTasksLoadFailure,
   }) {
     return projectsLoadInProgress(this);
   }
@@ -634,6 +873,10 @@ class _$_ProjectsLoadInProgress implements _ProjectsLoadInProgress {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
   }) {
     return projectsLoadInProgress?.call(this);
   }
@@ -645,6 +888,10 @@ class _$_ProjectsLoadInProgress implements _ProjectsLoadInProgress {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
     required TResult orElse(),
   }) {
     if (projectsLoadInProgress != null) {
@@ -728,6 +975,9 @@ class _$_ProjectsLoadSuccess implements _ProjectsLoadSuccess {
     required TResult Function() projectsLoadInProgress,
     required TResult Function(List<Project> projects) projectsLoadSuccess,
     required TResult Function() projectsLoadFailure,
+    required TResult Function() projectTasksLoadInProgress,
+    required TResult Function(List<Task> tasks) projectTasksLoadSuccess,
+    required TResult Function() projectTasksLoadFailure,
   }) {
     return projectsLoadSuccess(projects);
   }
@@ -739,6 +989,9 @@ class _$_ProjectsLoadSuccess implements _ProjectsLoadSuccess {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
   }) {
     return projectsLoadSuccess?.call(projects);
   }
@@ -750,6 +1003,9 @@ class _$_ProjectsLoadSuccess implements _ProjectsLoadSuccess {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
     required TResult orElse(),
   }) {
     if (projectsLoadSuccess != null) {
@@ -766,6 +1022,12 @@ class _$_ProjectsLoadSuccess implements _ProjectsLoadSuccess {
         projectsLoadInProgress,
     required TResult Function(_ProjectsLoadSuccess value) projectsLoadSuccess,
     required TResult Function(_ProjectsLoadFailure value) projectsLoadFailure,
+    required TResult Function(_ProjectTasksLoadInProgress value)
+        projectTasksLoadInProgress,
+    required TResult Function(_ProjectTasksLoadSuccess value)
+        projectTasksLoadSuccess,
+    required TResult Function(_ProjectTasksLoadFailure value)
+        projectTasksLoadFailure,
   }) {
     return projectsLoadSuccess(this);
   }
@@ -777,6 +1039,10 @@ class _$_ProjectsLoadSuccess implements _ProjectsLoadSuccess {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
   }) {
     return projectsLoadSuccess?.call(this);
   }
@@ -788,6 +1054,10 @@ class _$_ProjectsLoadSuccess implements _ProjectsLoadSuccess {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
     required TResult orElse(),
   }) {
     if (projectsLoadSuccess != null) {
@@ -852,6 +1122,9 @@ class _$_ProjectsLoadFailure implements _ProjectsLoadFailure {
     required TResult Function() projectsLoadInProgress,
     required TResult Function(List<Project> projects) projectsLoadSuccess,
     required TResult Function() projectsLoadFailure,
+    required TResult Function() projectTasksLoadInProgress,
+    required TResult Function(List<Task> tasks) projectTasksLoadSuccess,
+    required TResult Function() projectTasksLoadFailure,
   }) {
     return projectsLoadFailure();
   }
@@ -863,6 +1136,9 @@ class _$_ProjectsLoadFailure implements _ProjectsLoadFailure {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
   }) {
     return projectsLoadFailure?.call();
   }
@@ -874,6 +1150,9 @@ class _$_ProjectsLoadFailure implements _ProjectsLoadFailure {
     TResult Function()? projectsLoadInProgress,
     TResult Function(List<Project> projects)? projectsLoadSuccess,
     TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
     required TResult orElse(),
   }) {
     if (projectsLoadFailure != null) {
@@ -890,6 +1169,12 @@ class _$_ProjectsLoadFailure implements _ProjectsLoadFailure {
         projectsLoadInProgress,
     required TResult Function(_ProjectsLoadSuccess value) projectsLoadSuccess,
     required TResult Function(_ProjectsLoadFailure value) projectsLoadFailure,
+    required TResult Function(_ProjectTasksLoadInProgress value)
+        projectTasksLoadInProgress,
+    required TResult Function(_ProjectTasksLoadSuccess value)
+        projectTasksLoadSuccess,
+    required TResult Function(_ProjectTasksLoadFailure value)
+        projectTasksLoadFailure,
   }) {
     return projectsLoadFailure(this);
   }
@@ -901,6 +1186,10 @@ class _$_ProjectsLoadFailure implements _ProjectsLoadFailure {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
   }) {
     return projectsLoadFailure?.call(this);
   }
@@ -912,6 +1201,10 @@ class _$_ProjectsLoadFailure implements _ProjectsLoadFailure {
     TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
     TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
     TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
     required TResult orElse(),
   }) {
     if (projectsLoadFailure != null) {
@@ -923,4 +1216,463 @@ class _$_ProjectsLoadFailure implements _ProjectsLoadFailure {
 
 abstract class _ProjectsLoadFailure implements ProjectManagementState {
   const factory _ProjectsLoadFailure() = _$_ProjectsLoadFailure;
+}
+
+/// @nodoc
+abstract class _$ProjectTasksLoadInProgressCopyWith<$Res> {
+  factory _$ProjectTasksLoadInProgressCopyWith(
+          _ProjectTasksLoadInProgress value,
+          $Res Function(_ProjectTasksLoadInProgress) then) =
+      __$ProjectTasksLoadInProgressCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ProjectTasksLoadInProgressCopyWithImpl<$Res>
+    extends _$ProjectManagementStateCopyWithImpl<$Res>
+    implements _$ProjectTasksLoadInProgressCopyWith<$Res> {
+  __$ProjectTasksLoadInProgressCopyWithImpl(_ProjectTasksLoadInProgress _value,
+      $Res Function(_ProjectTasksLoadInProgress) _then)
+      : super(_value, (v) => _then(v as _ProjectTasksLoadInProgress));
+
+  @override
+  _ProjectTasksLoadInProgress get _value =>
+      super._value as _ProjectTasksLoadInProgress;
+}
+
+/// @nodoc
+
+class _$_ProjectTasksLoadInProgress implements _ProjectTasksLoadInProgress {
+  const _$_ProjectTasksLoadInProgress();
+
+  @override
+  String toString() {
+    return 'ProjectManagementState.projectTasksLoadInProgress()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProjectTasksLoadInProgress);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() projectsLoadInProgress,
+    required TResult Function(List<Project> projects) projectsLoadSuccess,
+    required TResult Function() projectsLoadFailure,
+    required TResult Function() projectTasksLoadInProgress,
+    required TResult Function(List<Task> tasks) projectTasksLoadSuccess,
+    required TResult Function() projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadInProgress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? projectsLoadInProgress,
+    TResult Function(List<Project> projects)? projectsLoadSuccess,
+    TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadInProgress?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? projectsLoadInProgress,
+    TResult Function(List<Project> projects)? projectsLoadSuccess,
+    TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
+    required TResult orElse(),
+  }) {
+    if (projectTasksLoadInProgress != null) {
+      return projectTasksLoadInProgress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ProjectsLoadInProgress value)
+        projectsLoadInProgress,
+    required TResult Function(_ProjectsLoadSuccess value) projectsLoadSuccess,
+    required TResult Function(_ProjectsLoadFailure value) projectsLoadFailure,
+    required TResult Function(_ProjectTasksLoadInProgress value)
+        projectTasksLoadInProgress,
+    required TResult Function(_ProjectTasksLoadSuccess value)
+        projectTasksLoadSuccess,
+    required TResult Function(_ProjectTasksLoadFailure value)
+        projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadInProgress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
+    TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
+    TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadInProgress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
+    TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
+    TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
+    required TResult orElse(),
+  }) {
+    if (projectTasksLoadInProgress != null) {
+      return projectTasksLoadInProgress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProjectTasksLoadInProgress implements ProjectManagementState {
+  const factory _ProjectTasksLoadInProgress() = _$_ProjectTasksLoadInProgress;
+}
+
+/// @nodoc
+abstract class _$ProjectTasksLoadSuccessCopyWith<$Res> {
+  factory _$ProjectTasksLoadSuccessCopyWith(_ProjectTasksLoadSuccess value,
+          $Res Function(_ProjectTasksLoadSuccess) then) =
+      __$ProjectTasksLoadSuccessCopyWithImpl<$Res>;
+  $Res call({List<Task> tasks});
+}
+
+/// @nodoc
+class __$ProjectTasksLoadSuccessCopyWithImpl<$Res>
+    extends _$ProjectManagementStateCopyWithImpl<$Res>
+    implements _$ProjectTasksLoadSuccessCopyWith<$Res> {
+  __$ProjectTasksLoadSuccessCopyWithImpl(_ProjectTasksLoadSuccess _value,
+      $Res Function(_ProjectTasksLoadSuccess) _then)
+      : super(_value, (v) => _then(v as _ProjectTasksLoadSuccess));
+
+  @override
+  _ProjectTasksLoadSuccess get _value =>
+      super._value as _ProjectTasksLoadSuccess;
+
+  @override
+  $Res call({
+    Object? tasks = freezed,
+  }) {
+    return _then(_ProjectTasksLoadSuccess(
+      tasks == freezed
+          ? _value.tasks
+          : tasks // ignore: cast_nullable_to_non_nullable
+              as List<Task>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ProjectTasksLoadSuccess implements _ProjectTasksLoadSuccess {
+  const _$_ProjectTasksLoadSuccess(this.tasks);
+
+  @override
+  final List<Task> tasks;
+
+  @override
+  String toString() {
+    return 'ProjectManagementState.projectTasksLoadSuccess(tasks: $tasks)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProjectTasksLoadSuccess &&
+            const DeepCollectionEquality().equals(other.tasks, tasks));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tasks));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ProjectTasksLoadSuccessCopyWith<_ProjectTasksLoadSuccess> get copyWith =>
+      __$ProjectTasksLoadSuccessCopyWithImpl<_ProjectTasksLoadSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() projectsLoadInProgress,
+    required TResult Function(List<Project> projects) projectsLoadSuccess,
+    required TResult Function() projectsLoadFailure,
+    required TResult Function() projectTasksLoadInProgress,
+    required TResult Function(List<Task> tasks) projectTasksLoadSuccess,
+    required TResult Function() projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadSuccess(tasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? projectsLoadInProgress,
+    TResult Function(List<Project> projects)? projectsLoadSuccess,
+    TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadSuccess?.call(tasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? projectsLoadInProgress,
+    TResult Function(List<Project> projects)? projectsLoadSuccess,
+    TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
+    required TResult orElse(),
+  }) {
+    if (projectTasksLoadSuccess != null) {
+      return projectTasksLoadSuccess(tasks);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ProjectsLoadInProgress value)
+        projectsLoadInProgress,
+    required TResult Function(_ProjectsLoadSuccess value) projectsLoadSuccess,
+    required TResult Function(_ProjectsLoadFailure value) projectsLoadFailure,
+    required TResult Function(_ProjectTasksLoadInProgress value)
+        projectTasksLoadInProgress,
+    required TResult Function(_ProjectTasksLoadSuccess value)
+        projectTasksLoadSuccess,
+    required TResult Function(_ProjectTasksLoadFailure value)
+        projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
+    TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
+    TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
+    TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
+    TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
+    required TResult orElse(),
+  }) {
+    if (projectTasksLoadSuccess != null) {
+      return projectTasksLoadSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProjectTasksLoadSuccess implements ProjectManagementState {
+  const factory _ProjectTasksLoadSuccess(List<Task> tasks) =
+      _$_ProjectTasksLoadSuccess;
+
+  List<Task> get tasks;
+  @JsonKey(ignore: true)
+  _$ProjectTasksLoadSuccessCopyWith<_ProjectTasksLoadSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ProjectTasksLoadFailureCopyWith<$Res> {
+  factory _$ProjectTasksLoadFailureCopyWith(_ProjectTasksLoadFailure value,
+          $Res Function(_ProjectTasksLoadFailure) then) =
+      __$ProjectTasksLoadFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ProjectTasksLoadFailureCopyWithImpl<$Res>
+    extends _$ProjectManagementStateCopyWithImpl<$Res>
+    implements _$ProjectTasksLoadFailureCopyWith<$Res> {
+  __$ProjectTasksLoadFailureCopyWithImpl(_ProjectTasksLoadFailure _value,
+      $Res Function(_ProjectTasksLoadFailure) _then)
+      : super(_value, (v) => _then(v as _ProjectTasksLoadFailure));
+
+  @override
+  _ProjectTasksLoadFailure get _value =>
+      super._value as _ProjectTasksLoadFailure;
+}
+
+/// @nodoc
+
+class _$_ProjectTasksLoadFailure implements _ProjectTasksLoadFailure {
+  const _$_ProjectTasksLoadFailure();
+
+  @override
+  String toString() {
+    return 'ProjectManagementState.projectTasksLoadFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ProjectTasksLoadFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() projectsLoadInProgress,
+    required TResult Function(List<Project> projects) projectsLoadSuccess,
+    required TResult Function() projectsLoadFailure,
+    required TResult Function() projectTasksLoadInProgress,
+    required TResult Function(List<Task> tasks) projectTasksLoadSuccess,
+    required TResult Function() projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? projectsLoadInProgress,
+    TResult Function(List<Project> projects)? projectsLoadSuccess,
+    TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? projectsLoadInProgress,
+    TResult Function(List<Project> projects)? projectsLoadSuccess,
+    TResult Function()? projectsLoadFailure,
+    TResult Function()? projectTasksLoadInProgress,
+    TResult Function(List<Task> tasks)? projectTasksLoadSuccess,
+    TResult Function()? projectTasksLoadFailure,
+    required TResult orElse(),
+  }) {
+    if (projectTasksLoadFailure != null) {
+      return projectTasksLoadFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ProjectsLoadInProgress value)
+        projectsLoadInProgress,
+    required TResult Function(_ProjectsLoadSuccess value) projectsLoadSuccess,
+    required TResult Function(_ProjectsLoadFailure value) projectsLoadFailure,
+    required TResult Function(_ProjectTasksLoadInProgress value)
+        projectTasksLoadInProgress,
+    required TResult Function(_ProjectTasksLoadSuccess value)
+        projectTasksLoadSuccess,
+    required TResult Function(_ProjectTasksLoadFailure value)
+        projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
+    TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
+    TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
+  }) {
+    return projectTasksLoadFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ProjectsLoadInProgress value)? projectsLoadInProgress,
+    TResult Function(_ProjectsLoadSuccess value)? projectsLoadSuccess,
+    TResult Function(_ProjectsLoadFailure value)? projectsLoadFailure,
+    TResult Function(_ProjectTasksLoadInProgress value)?
+        projectTasksLoadInProgress,
+    TResult Function(_ProjectTasksLoadSuccess value)? projectTasksLoadSuccess,
+    TResult Function(_ProjectTasksLoadFailure value)? projectTasksLoadFailure,
+    required TResult orElse(),
+  }) {
+    if (projectTasksLoadFailure != null) {
+      return projectTasksLoadFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProjectTasksLoadFailure implements ProjectManagementState {
+  const factory _ProjectTasksLoadFailure() = _$_ProjectTasksLoadFailure;
 }
