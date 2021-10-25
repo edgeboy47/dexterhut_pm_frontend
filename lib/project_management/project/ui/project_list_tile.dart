@@ -33,36 +33,53 @@ class ProjectListTile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                child: Text(
-                  project.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline5
-                      ?.copyWith(color: Colors.black),
-                ),
-              ),
-              if (project.description != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
-                  child: Text(
-                    project.description!,
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle2
-                        ?.copyWith(color: Colors.grey),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Text(
+                          project.name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              ?.copyWith(color: Colors.black),
+                        ),
+                      ),
+                      if (project.description != null)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4.0),
+                          child: Text(
+                            project.description!,
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle2
+                                ?.copyWith(color: Colors.grey),
+                          ),
+                        ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: ProjectListTileIconWithText(
+                          text: project.createdAt
+                              .toLocal()
+                              .toIso8601String()
+                              .substring(0, 10),
+                          icon: Icons.calendar_today,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                child: ProjectListTileIconWithText(
-                  text: project.createdAt
-                      .toLocal()
-                      .toIso8601String()
-                      .substring(0, 10),
-                  icon: Icons.calendar_today,
-                ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text("${project.numCompletedTasks} Completed"),
+                      Text("${project.numInProgress} In Progress"),
+                    ],
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4.0),

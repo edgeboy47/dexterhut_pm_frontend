@@ -43,7 +43,7 @@ class RemoteDataSource implements DataSourceInterface {
 
       return projects;
     } catch (e) {
-      print(e);
+      print('Error getting projects for user: $e');
     }
     return projects;
   }

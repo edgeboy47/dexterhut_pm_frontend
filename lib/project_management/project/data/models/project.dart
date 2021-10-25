@@ -1,3 +1,4 @@
+import 'package:dexter_pm_frontend/project_management/tasks/data/models/task.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'project.freezed.dart';
 part 'project.g.dart';
@@ -11,11 +12,20 @@ class Project with _$Project {
     String? description,
     String? photoURL,
     String? projectURL,
-    required List<String> tasks,
+    required List<Task> tasks,
     required List<String> members,
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _Project;
 
-  factory Project.fromJson(Map<String, dynamic> json) => _$ProjectFromJson(json);
+  int get numCompletedTasks {
+    return tasks.where((task) => task.isCompleted ?? false).length;
+  }
+
+  int get numInProgress {
+    return tasks.where((task) => task.isInProgress ?? false).length;
+  }
+
+  factory Project.fromJson(Map<String, dynamic> json) =>
+      _$ProjectFromJson(json);
 }

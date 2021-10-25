@@ -12,7 +12,9 @@ _$_Project _$$_ProjectFromJson(Map<String, dynamic> json) => _$_Project(
       description: json['description'] as String?,
       photoURL: json['photoURL'] as String?,
       projectURL: json['projectURL'] as String?,
-      tasks: (json['tasks'] as List<dynamic>).map((e) => e as String).toList(),
+      tasks: (json['tasks'] as List<dynamic>)
+          .map((e) => Task.fromJson(e as Map<String, dynamic>))
+          .toList(),
       members:
           (json['members'] as List<dynamic>).map((e) => e as String).toList(),
       createdAt: DateTime.parse(json['createdAt'] as String),
@@ -26,7 +28,7 @@ Map<String, dynamic> _$$_ProjectToJson(_$_Project instance) =>
       'description': instance.description,
       'photoURL': instance.photoURL,
       'projectURL': instance.projectURL,
-      'tasks': instance.tasks,
+      'tasks': instance.tasks.map((e) => e.toJson()).toList(),
       'members': instance.members,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),

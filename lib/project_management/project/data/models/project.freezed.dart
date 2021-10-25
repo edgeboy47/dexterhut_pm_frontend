@@ -27,7 +27,7 @@ class _$ProjectTearOff {
       String? description,
       String? photoURL,
       String? projectURL,
-      required List<String> tasks,
+      required List<Task> tasks,
       required List<String> members,
       required DateTime createdAt,
       required DateTime updatedAt}) {
@@ -60,7 +60,7 @@ mixin _$Project {
   String? get description => throw _privateConstructorUsedError;
   String? get photoURL => throw _privateConstructorUsedError;
   String? get projectURL => throw _privateConstructorUsedError;
-  List<String> get tasks => throw _privateConstructorUsedError;
+  List<Task> get tasks => throw _privateConstructorUsedError;
   List<String> get members => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
@@ -80,7 +80,7 @@ abstract class $ProjectCopyWith<$Res> {
       String? description,
       String? photoURL,
       String? projectURL,
-      List<String> tasks,
+      List<Task> tasks,
       List<String> members,
       DateTime createdAt,
       DateTime updatedAt});
@@ -130,7 +130,7 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
       tasks: tasks == freezed
           ? _value.tasks
           : tasks // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Task>,
       members: members == freezed
           ? _value.members
           : members // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
       String? description,
       String? photoURL,
       String? projectURL,
-      List<String> tasks,
+      List<Task> tasks,
       List<String> members,
       DateTime createdAt,
       DateTime updatedAt});
@@ -209,7 +209,7 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
       tasks: tasks == freezed
           ? _value.tasks
           : tasks // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Task>,
       members: members == freezed
           ? _value.members
           : members // ignore: cast_nullable_to_non_nullable
@@ -256,7 +256,7 @@ class _$_Project extends _Project {
   @override
   final String? projectURL;
   @override
-  final List<String> tasks;
+  final List<Task> tasks;
   @override
   final List<String> members;
   @override
@@ -321,7 +321,7 @@ abstract class _Project extends Project {
       String? description,
       String? photoURL,
       String? projectURL,
-      required List<String> tasks,
+      required List<Task> tasks,
       required List<String> members,
       required DateTime createdAt,
       required DateTime updatedAt}) = _$_Project;
@@ -341,7 +341,7 @@ abstract class _Project extends Project {
   @override
   String? get projectURL;
   @override
-  List<String> get tasks;
+  List<Task> get tasks;
   @override
   List<String> get members;
   @override

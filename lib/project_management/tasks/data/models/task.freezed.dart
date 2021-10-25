@@ -27,6 +27,8 @@ class _$TaskTearOff {
       DateTime? dueDate,
       String? description,
       List<String>? usersAssigned,
+      bool? isInProgress,
+      bool? isCompleted,
       required DateTime createdAt,
       required DateTime updatedAt}) {
     return _Task(
@@ -35,6 +37,8 @@ class _$TaskTearOff {
       dueDate: dueDate,
       description: description,
       usersAssigned: usersAssigned,
+      isInProgress: isInProgress,
+      isCompleted: isCompleted,
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
@@ -56,6 +60,8 @@ mixin _$Task {
   DateTime? get dueDate => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<String>? get usersAssigned => throw _privateConstructorUsedError;
+  bool? get isInProgress => throw _privateConstructorUsedError;
+  bool? get isCompleted => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
@@ -74,6 +80,8 @@ abstract class $TaskCopyWith<$Res> {
       DateTime? dueDate,
       String? description,
       List<String>? usersAssigned,
+      bool? isInProgress,
+      bool? isCompleted,
       DateTime createdAt,
       DateTime updatedAt});
 }
@@ -93,6 +101,8 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
     Object? dueDate = freezed,
     Object? description = freezed,
     Object? usersAssigned = freezed,
+    Object? isInProgress = freezed,
+    Object? isCompleted = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -117,6 +127,14 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
           ? _value.usersAssigned
           : usersAssigned // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      isInProgress: isInProgress == freezed
+          ? _value.isInProgress
+          : isInProgress // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isCompleted: isCompleted == freezed
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -140,6 +158,8 @@ abstract class _$TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
       DateTime? dueDate,
       String? description,
       List<String>? usersAssigned,
+      bool? isInProgress,
+      bool? isCompleted,
       DateTime createdAt,
       DateTime updatedAt});
 }
@@ -160,6 +180,8 @@ class __$TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
     Object? dueDate = freezed,
     Object? description = freezed,
     Object? usersAssigned = freezed,
+    Object? isInProgress = freezed,
+    Object? isCompleted = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -184,6 +206,14 @@ class __$TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
           ? _value.usersAssigned
           : usersAssigned // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      isInProgress: isInProgress == freezed
+          ? _value.isInProgress
+          : isInProgress // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isCompleted: isCompleted == freezed
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -205,6 +235,8 @@ class _$_Task extends _Task {
       this.dueDate,
       this.description,
       this.usersAssigned,
+      this.isInProgress,
+      this.isCompleted,
       required this.createdAt,
       required this.updatedAt})
       : super._();
@@ -223,13 +255,17 @@ class _$_Task extends _Task {
   @override
   final List<String>? usersAssigned;
   @override
+  final bool? isInProgress;
+  @override
+  final bool? isCompleted;
+  @override
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
 
   @override
   String toString() {
-    return 'Task(id: $id, name: $name, dueDate: $dueDate, description: $description, usersAssigned: $usersAssigned, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Task(id: $id, name: $name, dueDate: $dueDate, description: $description, usersAssigned: $usersAssigned, isInProgress: $isInProgress, isCompleted: $isCompleted, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -244,6 +280,10 @@ class _$_Task extends _Task {
                 other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other.usersAssigned, usersAssigned) &&
+            (identical(other.isInProgress, isInProgress) ||
+                other.isInProgress == isInProgress) &&
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -251,8 +291,17 @@ class _$_Task extends _Task {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, dueDate, description,
-      const DeepCollectionEquality().hash(usersAssigned), createdAt, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      dueDate,
+      description,
+      const DeepCollectionEquality().hash(usersAssigned),
+      isInProgress,
+      isCompleted,
+      createdAt,
+      updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -272,6 +321,8 @@ abstract class _Task extends Task {
       DateTime? dueDate,
       String? description,
       List<String>? usersAssigned,
+      bool? isInProgress,
+      bool? isCompleted,
       required DateTime createdAt,
       required DateTime updatedAt}) = _$_Task;
   const _Task._() : super._();
@@ -289,6 +340,10 @@ abstract class _Task extends Task {
   String? get description;
   @override
   List<String>? get usersAssigned;
+  @override
+  bool? get isInProgress;
+  @override
+  bool? get isCompleted;
   @override
   DateTime get createdAt;
   @override

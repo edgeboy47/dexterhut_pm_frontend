@@ -11,6 +11,8 @@ class Task with _$Task {
     DateTime? dueDate,
     String? description,
     List<String>? usersAssigned,
+    bool? isInProgress,
+    bool? isCompleted,
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _Task;

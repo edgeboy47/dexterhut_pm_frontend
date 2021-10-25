@@ -16,6 +16,8 @@ _$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
       usersAssigned: (json['usersAssigned'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      isInProgress: json['isInProgress'] as bool?,
+      isCompleted: json['isCompleted'] as bool?,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
@@ -26,6 +28,8 @@ Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
       'dueDate': instance.dueDate?.toIso8601String(),
       'description': instance.description,
       'usersAssigned': instance.usersAssigned,
+      'isInProgress': instance.isInProgress,
+      'isCompleted': instance.isCompleted,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
     };
