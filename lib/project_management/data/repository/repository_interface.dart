@@ -5,5 +5,11 @@ abstract class RepositoryInterface {
   Future<List<Project>> getUsersProjects(String userID);
 
   Future<List<Task>> getTasksForProject(String projectID);
-  
+
+  // Task Functions
+  Future<void> createTask(Task task, String projectID);
+
+  Future<void> updateTask(Task task, String projectID);
+
+  Future<void> deleteTask(String taskID, String projectID);
 }

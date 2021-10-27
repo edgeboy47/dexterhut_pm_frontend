@@ -2,11 +2,16 @@ import 'dart:convert';
 import 'package:dexter_pm_frontend/project_management/data/data_source/data_source_interface.dart';
 import 'package:dexter_pm_frontend/project_management/project/data/models/project.dart';
 import 'package:dexter_pm_frontend/project_management/tasks/data/models/task.dart';
+import 'package:dexter_pm_frontend/project_management/tasks/data/services/task_service.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteDataSource implements DataSourceInterface {
+  RemoteDataSource({required this.taskService});
+
   // TODO: move url to env file
   final String baseURL = 'http://10.0.2.2:3000';
+
+  final TaskService taskService;
 
   @override
   Future<List<Task>> getTasksForProject(String projectID) async {
@@ -46,5 +51,25 @@ class RemoteDataSource implements DataSourceInterface {
       print('Error getting projects for user: $e');
     }
     return projects;
+  }
+
+  //Task functions
+
+  // Create task
+  @override
+  Future<void> createTask(Task task, String projectID) async {
+    return taskService.createTask(task, projectID);
+  }
+
+  // Update task
+  @override
+  Future<void> updateTask(Task task, String projectID) async {
+    return taskService.updateTask(task, projectID);
+  }
+
+  // Delete task
+  @override
+  Future<void> deleteTask(String taskID, String projectID) async {
+    return taskService.deleteTask(taskID, projectID);
   }
 }

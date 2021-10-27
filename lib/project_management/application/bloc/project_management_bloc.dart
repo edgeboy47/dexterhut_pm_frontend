@@ -36,6 +36,21 @@ class ProjectManagementBloc
         final tasks = await repository.getTasksForProject(event.projectID);
         emit(ProjectManagementState.projectTasksLoadSuccess(tasks));
       },
+      taskCreated: (event) async {
+        emit(const ProjectManagementState.projectTasksLoadInProgress());
+        await repository.createTask(event.task, event.projectID);
+        add(ProjectManagementEvent.projectTasksLoaded(event.projectID));
+      },
+      taskUpdated: (event) async {
+        emit(const ProjectManagementState.projectTasksLoadInProgress());
+        await repository.updateTask(event.task, event.projectID);
+        add(ProjectManagementEvent.projectTasksLoaded(event.projectID));
+      },
+      taskDeleted: (event) async {
+        emit(const ProjectManagementState.projectTasksLoadInProgress());
+        await repository.deleteTask(event.taskID, event.projectID);
+        add(ProjectManagementEvent.projectTasksLoaded(event.projectID));
+      },
       orElse: () {},
     );
   }

@@ -17,4 +17,20 @@ class Repository implements RepositoryInterface {
   Future<List<Project>> getUsersProjects(String userID) {
     return dataSource.getUsersProjects(userID);
   }
+
+  // Task Functions
+  @override
+  Future<void> createTask(Task task, String projectID) async {
+    return dataSource.createTask(task, projectID);
+  }
+
+  @override
+  Future<void> updateTask(Task task, String projectID) async {
+    return dataSource.updateTask(task, projectID);
+  }
+
+  @override
+  Future<void> deleteTask(String taskID, String projectID) async {
+    return dataSource.deleteTask(taskID, projectID);
+  }
 }

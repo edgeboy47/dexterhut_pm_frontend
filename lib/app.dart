@@ -2,6 +2,7 @@ import 'package:dexter_pm_frontend/project_management/application/bloc/project_m
 import 'package:dexter_pm_frontend/project_management/data/data_source/remote_data_source.dart';
 import 'package:dexter_pm_frontend/project_management/data/repository/repository.dart';
 import 'package:dexter_pm_frontend/project_management/project/ui/home_page.dart';
+import 'package:dexter_pm_frontend/project_management/tasks/data/services/task_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
-      create: (context) => Repository(RemoteDataSource()),
+      create: (context) => Repository(RemoteDataSource(taskService: TaskService())),
       child: BlocProvider(
         create: (context) =>
             ProjectManagementBloc(repository: context.read<Repository>())

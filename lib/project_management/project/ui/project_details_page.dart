@@ -20,6 +20,7 @@ class ProjectDetailsPage extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
+              // TODO: Get user ID from auth service
               context.read<ProjectManagementBloc>().add(
                     const ProjectManagementEvent.projectsLoaded(
                       '61679d3ac8f52735e475c8b4',
@@ -41,7 +42,7 @@ class ProjectDetailsPage extends StatelessWidget {
                     final tasks = state.tasks;
                     return tasks.isEmpty
                         ? const Text("No tasks found")
-                        : TaskList(tasks: state.tasks);
+                        : TaskList(tasks: state.tasks, projectID: project.id,);
                   },
                   orElse: () => Container(),
                 );
