@@ -17,5 +17,7 @@ class Task with _$Task {
     required DateTime updatedAt,
   }) = _Task;
 
+  bool get isNotStarted =>
+      (isInProgress ?? false) == false && (isCompleted ?? false) == false;
   factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
 }

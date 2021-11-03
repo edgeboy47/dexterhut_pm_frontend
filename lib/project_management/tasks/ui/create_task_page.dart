@@ -28,6 +28,7 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
     task = Task(
       id: '',
       name: '',
+      usersAssigned: [],
       createdAt: DateTime.now(),
       updatedAt: DateTime.now(),
     );
@@ -62,14 +63,12 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
                       return "Required";
                     },
                     onSaved: (val) {
-                      print("onsaved called for name field");
                       task = task.copyWith(name: val!);
                     },
                     decoration: const InputDecoration(labelText: "Name *"),
                   ),
                   TextFormField(
                     onSaved: (val) {
-                      print("onsaved called for desc field");
                       task = task.copyWith(description: val);
                     },
                     decoration:
