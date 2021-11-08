@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dexter_pm_frontend/project_management/data/data_source/data_source_interface.dart';
 import 'package:dexter_pm_frontend/project_management/project/data/models/project.dart';
 import 'package:dexter_pm_frontend/project_management/tasks/data/models/task.dart';
+import 'package:dexter_pm_frontend/project_management/tasks/data/models/task_comment.dart';
 import 'package:dexter_pm_frontend/project_management/tasks/data/services/task_service.dart';
 import 'package:http/http.dart' as http;
 
@@ -71,5 +72,23 @@ class RemoteDataSource implements DataSourceInterface {
   @override
   Future<void> deleteTask(String taskID, String projectID) async {
     return taskService.deleteTask(taskID, projectID);
+  }
+
+  @override
+  Future<void> addTaskComment(
+    String projectID,
+    String taskID,
+    TaskComment comment,
+  ) {
+    return taskService.addTaskComment(projectID, taskID, comment);
+  }
+
+  @override
+  Future<void> deleteTaskComment(
+    String projectID,
+    String taskID,
+    String commentID,
+  ) {
+    return taskService.deleteTaskComment(projectID, taskID, commentID);
   }
 }

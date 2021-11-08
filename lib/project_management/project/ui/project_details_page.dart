@@ -36,7 +36,7 @@ class ProjectDetailsPage extends StatelessWidget {
               // TODO: Get user ID from auth service
               context.read<ProjectManagementBloc>().add(
                     const ProjectManagementEvent.projectsLoaded(
-                      '61679d3ac8f52735e475c8b4',
+                      userID: '61679d3ac8f52735e475c8b4',
                     ),
                   );
               Navigator.of(context).pop();

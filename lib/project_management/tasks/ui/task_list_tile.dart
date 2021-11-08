@@ -1,5 +1,7 @@
 import 'package:dexter_pm_frontend/project_management/application/bloc/project_management_bloc.dart';
+import 'package:dexter_pm_frontend/project_management/tasks/application/cubit/task_comments_cubit.dart';
 import 'package:dexter_pm_frontend/project_management/tasks/data/models/task.dart';
+import 'package:dexter_pm_frontend/project_management/tasks/ui/task_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,9 +32,12 @@ class TaskListTile extends StatelessWidget {
       child: Dismissible(
         key: key ?? Key(task.id),
         onDismissed: (direction) {
-          context
-              .read<ProjectManagementBloc>()
-              .add(ProjectManagementEvent.taskDeleted(task.id, projectID));
+          context.read<ProjectManagementBloc>().add(
+                ProjectManagementEvent.taskDeleted(
+                  taskID: task.id,
+                  projectID: projectID,
+                ),
+              );
         },
         background: const ColoredBox(
           color: Colors.red,
@@ -80,6 +85,22 @@ class TaskListTileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) {
+                context
+                    .read<TaskCommentsCubit>()
+                    .setInitialComments(initialComments: task.comments);
+
+                return TaskDetailsPage(
+                  task: task,
+                  projectID: projectID,
+                );
+              },
+            ),
+          );
+        },
         leading: IconButton(
           icon: Icon(
             (task.isCompleted ?? false)
@@ -94,11 +115,11 @@ class TaskListTileCard extends StatelessWidget {
               // Set task to not started, reset task list
               context.read<ProjectManagementBloc>().add(
                     ProjectManagementEvent.taskUpdated(
-                      task.copyWith(
+                      task: task.copyWith(
                         isInProgress: true,
                         isCompleted: false,
                       ),
-                      projectID,
+                      projectID: projectID,
                     ),
                   );
             }
@@ -107,11 +128,11 @@ class TaskListTileCard extends StatelessWidget {
               // Set task to in progress
               context.read<ProjectManagementBloc>().add(
                     ProjectManagementEvent.taskUpdated(
-                      task.copyWith(
+                      task: task.copyWith(
                         isInProgress: true,
                         isCompleted: false,
                       ),
-                      projectID,
+                      projectID: projectID,
                     ),
                   );
             }
@@ -120,11 +141,11 @@ class TaskListTileCard extends StatelessWidget {
               // Set task to completed, reset task list
               context.read<ProjectManagementBloc>().add(
                     ProjectManagementEvent.taskUpdated(
-                      task.copyWith(
+                      task: task.copyWith(
                         isInProgress: false,
                         isCompleted: true,
                       ),
-                      projectID,
+                      projectID: projectID,
                     ),
                   );
             }

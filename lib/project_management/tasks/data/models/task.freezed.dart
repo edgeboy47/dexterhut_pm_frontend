@@ -29,6 +29,7 @@ class _$TaskTearOff {
       List<String>? usersAssigned,
       bool? isInProgress,
       bool? isCompleted,
+      required List<TaskComment> comments,
       required DateTime createdAt,
       required DateTime updatedAt}) {
     return _Task(
@@ -39,6 +40,7 @@ class _$TaskTearOff {
       usersAssigned: usersAssigned,
       isInProgress: isInProgress,
       isCompleted: isCompleted,
+      comments: comments,
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
@@ -62,6 +64,7 @@ mixin _$Task {
   List<String>? get usersAssigned => throw _privateConstructorUsedError;
   bool? get isInProgress => throw _privateConstructorUsedError;
   bool? get isCompleted => throw _privateConstructorUsedError;
+  List<TaskComment> get comments => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
@@ -82,6 +85,7 @@ abstract class $TaskCopyWith<$Res> {
       List<String>? usersAssigned,
       bool? isInProgress,
       bool? isCompleted,
+      List<TaskComment> comments,
       DateTime createdAt,
       DateTime updatedAt});
 }
@@ -103,6 +107,7 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
     Object? usersAssigned = freezed,
     Object? isInProgress = freezed,
     Object? isCompleted = freezed,
+    Object? comments = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -135,6 +140,10 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool?,
+      comments: comments == freezed
+          ? _value.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as List<TaskComment>,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -160,6 +169,7 @@ abstract class _$TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
       List<String>? usersAssigned,
       bool? isInProgress,
       bool? isCompleted,
+      List<TaskComment> comments,
       DateTime createdAt,
       DateTime updatedAt});
 }
@@ -182,6 +192,7 @@ class __$TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
     Object? usersAssigned = freezed,
     Object? isInProgress = freezed,
     Object? isCompleted = freezed,
+    Object? comments = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -214,6 +225,10 @@ class __$TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool?,
+      comments: comments == freezed
+          ? _value.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as List<TaskComment>,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -237,6 +252,7 @@ class _$_Task extends _Task {
       this.usersAssigned,
       this.isInProgress,
       this.isCompleted,
+      required this.comments,
       required this.createdAt,
       required this.updatedAt})
       : super._();
@@ -259,13 +275,15 @@ class _$_Task extends _Task {
   @override
   final bool? isCompleted;
   @override
+  final List<TaskComment> comments;
+  @override
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
 
   @override
   String toString() {
-    return 'Task(id: $id, name: $name, dueDate: $dueDate, description: $description, usersAssigned: $usersAssigned, isInProgress: $isInProgress, isCompleted: $isCompleted, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Task(id: $id, name: $name, dueDate: $dueDate, description: $description, usersAssigned: $usersAssigned, isInProgress: $isInProgress, isCompleted: $isCompleted, comments: $comments, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -284,6 +302,7 @@ class _$_Task extends _Task {
                 other.isInProgress == isInProgress) &&
             (identical(other.isCompleted, isCompleted) ||
                 other.isCompleted == isCompleted) &&
+            const DeepCollectionEquality().equals(other.comments, comments) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -300,6 +319,7 @@ class _$_Task extends _Task {
       const DeepCollectionEquality().hash(usersAssigned),
       isInProgress,
       isCompleted,
+      const DeepCollectionEquality().hash(comments),
       createdAt,
       updatedAt);
 
@@ -323,6 +343,7 @@ abstract class _Task extends Task {
       List<String>? usersAssigned,
       bool? isInProgress,
       bool? isCompleted,
+      required List<TaskComment> comments,
       required DateTime createdAt,
       required DateTime updatedAt}) = _$_Task;
   const _Task._() : super._();
@@ -344,6 +365,8 @@ abstract class _Task extends Task {
   bool? get isInProgress;
   @override
   bool? get isCompleted;
+  @override
+  List<TaskComment> get comments;
   @override
   DateTime get createdAt;
   @override

@@ -23,11 +23,11 @@ class TaskList extends StatelessWidget {
           onAccept: (task) {
             context.read<ProjectManagementBloc>().add(
                   ProjectManagementEvent.taskUpdated(
-                    task.copyWith(
+                    task: task.copyWith(
                       isCompleted: false,
                       isInProgress: false,
                     ),
-                    projectID,
+                    projectID: projectID,
                   ),
                 );
           },
@@ -63,8 +63,8 @@ class TaskList extends StatelessWidget {
           onAccept: (task) {
             context.read<ProjectManagementBloc>().add(
                   ProjectManagementEvent.taskUpdated(
-                    task.copyWith(isInProgress: true, isCompleted: false),
-                    projectID,
+                    task: task.copyWith(isInProgress: true, isCompleted: false),
+                    projectID: projectID,
                   ),
                 );
           },
@@ -96,8 +96,8 @@ class TaskList extends StatelessWidget {
           onAccept: (task) {
             context.read<ProjectManagementBloc>().add(
                   ProjectManagementEvent.taskUpdated(
-                    task.copyWith(isInProgress: false, isCompleted: true),
-                    projectID,
+                    task: task.copyWith(isInProgress: false, isCompleted: true),
+                    projectID: projectID,
                   ),
                 );
           },

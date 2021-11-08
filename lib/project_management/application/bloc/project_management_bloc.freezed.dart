@@ -21,36 +21,59 @@ class _$ProjectManagementEventTearOff {
     return const _Started();
   }
 
-  _ProjectsLoaded projectsLoaded(String userID) {
+  _ProjectsLoaded projectsLoaded({required String userID}) {
     return _ProjectsLoaded(
-      userID,
+      userID: userID,
     );
   }
 
-  _ProjectTasksLoaded projectTasksLoaded(String projectID) {
+  _ProjectTasksLoaded projectTasksLoaded({required String projectID}) {
     return _ProjectTasksLoaded(
-      projectID,
+      projectID: projectID,
     );
   }
 
-  _TaskCreated taskCreated(Task task, String projectID) {
+  _TaskCreated taskCreated({required Task task, required String projectID}) {
     return _TaskCreated(
-      task,
-      projectID,
+      task: task,
+      projectID: projectID,
     );
   }
 
-  _TaskUpdated taskUpdated(Task task, String projectID) {
+  _TaskUpdated taskUpdated({required Task task, required String projectID}) {
     return _TaskUpdated(
-      task,
-      projectID,
+      task: task,
+      projectID: projectID,
     );
   }
 
-  _TaskDeleted taskDeleted(String taskID, String projectID) {
+  _TaskDeleted taskDeleted(
+      {required String taskID, required String projectID}) {
     return _TaskDeleted(
-      taskID,
-      projectID,
+      taskID: taskID,
+      projectID: projectID,
+    );
+  }
+
+  _TaskCommentDeleted taskCommentDeleted(
+      {required String taskID,
+      required String projectID,
+      required String commentID}) {
+    return _TaskCommentDeleted(
+      taskID: taskID,
+      projectID: projectID,
+      commentID: commentID,
+    );
+  }
+
+  _TaskCommentAdded taskCommentAdded(
+      {required String taskID,
+      required String projectID,
+      required TaskComment comment}) {
+    return _TaskCommentAdded(
+      taskID: taskID,
+      projectID: projectID,
+      comment: comment,
     );
   }
 }
@@ -68,6 +91,11 @@ mixin _$ProjectManagementEvent {
     required TResult Function(Task task, String projectID) taskCreated,
     required TResult Function(Task task, String projectID) taskUpdated,
     required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +106,10 @@ mixin _$ProjectManagementEvent {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +120,10 @@ mixin _$ProjectManagementEvent {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -99,6 +135,8 @@ mixin _$ProjectManagementEvent {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_TaskUpdated value) taskUpdated,
     required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -109,6 +147,8 @@ mixin _$ProjectManagementEvent {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -119,6 +159,8 @@ mixin _$ProjectManagementEvent {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -186,6 +228,11 @@ class _$_Started implements _Started {
     required TResult Function(Task task, String projectID) taskCreated,
     required TResult Function(Task task, String projectID) taskUpdated,
     required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
   }) {
     return started();
   }
@@ -199,6 +246,10 @@ class _$_Started implements _Started {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
   }) {
     return started?.call();
   }
@@ -212,6 +263,10 @@ class _$_Started implements _Started {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -229,6 +284,8 @@ class _$_Started implements _Started {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_TaskUpdated value) taskUpdated,
     required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
   }) {
     return started(this);
   }
@@ -242,6 +299,8 @@ class _$_Started implements _Started {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
   }) {
     return started?.call(this);
   }
@@ -255,6 +314,8 @@ class _$_Started implements _Started {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -292,7 +353,7 @@ class __$ProjectsLoadedCopyWithImpl<$Res>
     Object? userID = freezed,
   }) {
     return _then(_ProjectsLoaded(
-      userID == freezed
+      userID: userID == freezed
           ? _value.userID
           : userID // ignore: cast_nullable_to_non_nullable
               as String,
@@ -303,7 +364,7 @@ class __$ProjectsLoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProjectsLoaded implements _ProjectsLoaded {
-  const _$_ProjectsLoaded(this.userID);
+  const _$_ProjectsLoaded({required this.userID});
 
   @override
   final String userID;
@@ -338,6 +399,11 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
     required TResult Function(Task task, String projectID) taskCreated,
     required TResult Function(Task task, String projectID) taskUpdated,
     required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
   }) {
     return projectsLoaded(userID);
   }
@@ -351,6 +417,10 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
   }) {
     return projectsLoaded?.call(userID);
   }
@@ -364,6 +434,10 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
     required TResult orElse(),
   }) {
     if (projectsLoaded != null) {
@@ -381,6 +455,8 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_TaskUpdated value) taskUpdated,
     required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
   }) {
     return projectsLoaded(this);
   }
@@ -394,6 +470,8 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
   }) {
     return projectsLoaded?.call(this);
   }
@@ -407,6 +485,8 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
     required TResult orElse(),
   }) {
     if (projectsLoaded != null) {
@@ -417,7 +497,7 @@ class _$_ProjectsLoaded implements _ProjectsLoaded {
 }
 
 abstract class _ProjectsLoaded implements ProjectManagementEvent {
-  const factory _ProjectsLoaded(String userID) = _$_ProjectsLoaded;
+  const factory _ProjectsLoaded({required String userID}) = _$_ProjectsLoaded;
 
   String get userID;
   @JsonKey(ignore: true)
@@ -449,7 +529,7 @@ class __$ProjectTasksLoadedCopyWithImpl<$Res>
     Object? projectID = freezed,
   }) {
     return _then(_ProjectTasksLoaded(
-      projectID == freezed
+      projectID: projectID == freezed
           ? _value.projectID
           : projectID // ignore: cast_nullable_to_non_nullable
               as String,
@@ -460,7 +540,7 @@ class __$ProjectTasksLoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
-  const _$_ProjectTasksLoaded(this.projectID);
+  const _$_ProjectTasksLoaded({required this.projectID});
 
   @override
   final String projectID;
@@ -496,6 +576,11 @@ class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
     required TResult Function(Task task, String projectID) taskCreated,
     required TResult Function(Task task, String projectID) taskUpdated,
     required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
   }) {
     return projectTasksLoaded(projectID);
   }
@@ -509,6 +594,10 @@ class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
   }) {
     return projectTasksLoaded?.call(projectID);
   }
@@ -522,6 +611,10 @@ class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
     required TResult orElse(),
   }) {
     if (projectTasksLoaded != null) {
@@ -539,6 +632,8 @@ class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_TaskUpdated value) taskUpdated,
     required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
   }) {
     return projectTasksLoaded(this);
   }
@@ -552,6 +647,8 @@ class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
   }) {
     return projectTasksLoaded?.call(this);
   }
@@ -565,6 +662,8 @@ class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
     required TResult orElse(),
   }) {
     if (projectTasksLoaded != null) {
@@ -575,7 +674,8 @@ class _$_ProjectTasksLoaded implements _ProjectTasksLoaded {
 }
 
 abstract class _ProjectTasksLoaded implements ProjectManagementEvent {
-  const factory _ProjectTasksLoaded(String projectID) = _$_ProjectTasksLoaded;
+  const factory _ProjectTasksLoaded({required String projectID}) =
+      _$_ProjectTasksLoaded;
 
   String get projectID;
   @JsonKey(ignore: true)
@@ -610,11 +710,11 @@ class __$TaskCreatedCopyWithImpl<$Res>
     Object? projectID = freezed,
   }) {
     return _then(_TaskCreated(
-      task == freezed
+      task: task == freezed
           ? _value.task
           : task // ignore: cast_nullable_to_non_nullable
               as Task,
-      projectID == freezed
+      projectID: projectID == freezed
           ? _value.projectID
           : projectID // ignore: cast_nullable_to_non_nullable
               as String,
@@ -632,7 +732,7 @@ class __$TaskCreatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TaskCreated implements _TaskCreated {
-  const _$_TaskCreated(this.task, this.projectID);
+  const _$_TaskCreated({required this.task, required this.projectID});
 
   @override
   final Task task;
@@ -671,6 +771,11 @@ class _$_TaskCreated implements _TaskCreated {
     required TResult Function(Task task, String projectID) taskCreated,
     required TResult Function(Task task, String projectID) taskUpdated,
     required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
   }) {
     return taskCreated(task, projectID);
   }
@@ -684,6 +789,10 @@ class _$_TaskCreated implements _TaskCreated {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
   }) {
     return taskCreated?.call(task, projectID);
   }
@@ -697,6 +806,10 @@ class _$_TaskCreated implements _TaskCreated {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
     required TResult orElse(),
   }) {
     if (taskCreated != null) {
@@ -714,6 +827,8 @@ class _$_TaskCreated implements _TaskCreated {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_TaskUpdated value) taskUpdated,
     required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
   }) {
     return taskCreated(this);
   }
@@ -727,6 +842,8 @@ class _$_TaskCreated implements _TaskCreated {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
   }) {
     return taskCreated?.call(this);
   }
@@ -740,6 +857,8 @@ class _$_TaskCreated implements _TaskCreated {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
     required TResult orElse(),
   }) {
     if (taskCreated != null) {
@@ -750,7 +869,8 @@ class _$_TaskCreated implements _TaskCreated {
 }
 
 abstract class _TaskCreated implements ProjectManagementEvent {
-  const factory _TaskCreated(Task task, String projectID) = _$_TaskCreated;
+  const factory _TaskCreated({required Task task, required String projectID}) =
+      _$_TaskCreated;
 
   Task get task;
   String get projectID;
@@ -786,11 +906,11 @@ class __$TaskUpdatedCopyWithImpl<$Res>
     Object? projectID = freezed,
   }) {
     return _then(_TaskUpdated(
-      task == freezed
+      task: task == freezed
           ? _value.task
           : task // ignore: cast_nullable_to_non_nullable
               as Task,
-      projectID == freezed
+      projectID: projectID == freezed
           ? _value.projectID
           : projectID // ignore: cast_nullable_to_non_nullable
               as String,
@@ -808,7 +928,7 @@ class __$TaskUpdatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TaskUpdated implements _TaskUpdated {
-  const _$_TaskUpdated(this.task, this.projectID);
+  const _$_TaskUpdated({required this.task, required this.projectID});
 
   @override
   final Task task;
@@ -847,6 +967,11 @@ class _$_TaskUpdated implements _TaskUpdated {
     required TResult Function(Task task, String projectID) taskCreated,
     required TResult Function(Task task, String projectID) taskUpdated,
     required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
   }) {
     return taskUpdated(task, projectID);
   }
@@ -860,6 +985,10 @@ class _$_TaskUpdated implements _TaskUpdated {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
   }) {
     return taskUpdated?.call(task, projectID);
   }
@@ -873,6 +1002,10 @@ class _$_TaskUpdated implements _TaskUpdated {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
     required TResult orElse(),
   }) {
     if (taskUpdated != null) {
@@ -890,6 +1023,8 @@ class _$_TaskUpdated implements _TaskUpdated {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_TaskUpdated value) taskUpdated,
     required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
   }) {
     return taskUpdated(this);
   }
@@ -903,6 +1038,8 @@ class _$_TaskUpdated implements _TaskUpdated {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
   }) {
     return taskUpdated?.call(this);
   }
@@ -916,6 +1053,8 @@ class _$_TaskUpdated implements _TaskUpdated {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
     required TResult orElse(),
   }) {
     if (taskUpdated != null) {
@@ -926,7 +1065,8 @@ class _$_TaskUpdated implements _TaskUpdated {
 }
 
 abstract class _TaskUpdated implements ProjectManagementEvent {
-  const factory _TaskUpdated(Task task, String projectID) = _$_TaskUpdated;
+  const factory _TaskUpdated({required Task task, required String projectID}) =
+      _$_TaskUpdated;
 
   Task get task;
   String get projectID;
@@ -960,11 +1100,11 @@ class __$TaskDeletedCopyWithImpl<$Res>
     Object? projectID = freezed,
   }) {
     return _then(_TaskDeleted(
-      taskID == freezed
+      taskID: taskID == freezed
           ? _value.taskID
           : taskID // ignore: cast_nullable_to_non_nullable
               as String,
-      projectID == freezed
+      projectID: projectID == freezed
           ? _value.projectID
           : projectID // ignore: cast_nullable_to_non_nullable
               as String,
@@ -975,7 +1115,7 @@ class __$TaskDeletedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TaskDeleted implements _TaskDeleted {
-  const _$_TaskDeleted(this.taskID, this.projectID);
+  const _$_TaskDeleted({required this.taskID, required this.projectID});
 
   @override
   final String taskID;
@@ -1014,6 +1154,11 @@ class _$_TaskDeleted implements _TaskDeleted {
     required TResult Function(Task task, String projectID) taskCreated,
     required TResult Function(Task task, String projectID) taskUpdated,
     required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
   }) {
     return taskDeleted(taskID, projectID);
   }
@@ -1027,6 +1172,10 @@ class _$_TaskDeleted implements _TaskDeleted {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
   }) {
     return taskDeleted?.call(taskID, projectID);
   }
@@ -1040,6 +1189,10 @@ class _$_TaskDeleted implements _TaskDeleted {
     TResult Function(Task task, String projectID)? taskCreated,
     TResult Function(Task task, String projectID)? taskUpdated,
     TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
     required TResult orElse(),
   }) {
     if (taskDeleted != null) {
@@ -1057,6 +1210,8 @@ class _$_TaskDeleted implements _TaskDeleted {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_TaskUpdated value) taskUpdated,
     required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
   }) {
     return taskDeleted(this);
   }
@@ -1070,6 +1225,8 @@ class _$_TaskDeleted implements _TaskDeleted {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
   }) {
     return taskDeleted?.call(this);
   }
@@ -1083,6 +1240,8 @@ class _$_TaskDeleted implements _TaskDeleted {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_TaskUpdated value)? taskUpdated,
     TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
     required TResult orElse(),
   }) {
     if (taskDeleted != null) {
@@ -1093,12 +1252,421 @@ class _$_TaskDeleted implements _TaskDeleted {
 }
 
 abstract class _TaskDeleted implements ProjectManagementEvent {
-  const factory _TaskDeleted(String taskID, String projectID) = _$_TaskDeleted;
+  const factory _TaskDeleted(
+      {required String taskID, required String projectID}) = _$_TaskDeleted;
 
   String get taskID;
   String get projectID;
   @JsonKey(ignore: true)
   _$TaskDeletedCopyWith<_TaskDeleted> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$TaskCommentDeletedCopyWith<$Res> {
+  factory _$TaskCommentDeletedCopyWith(
+          _TaskCommentDeleted value, $Res Function(_TaskCommentDeleted) then) =
+      __$TaskCommentDeletedCopyWithImpl<$Res>;
+  $Res call({String taskID, String projectID, String commentID});
+}
+
+/// @nodoc
+class __$TaskCommentDeletedCopyWithImpl<$Res>
+    extends _$ProjectManagementEventCopyWithImpl<$Res>
+    implements _$TaskCommentDeletedCopyWith<$Res> {
+  __$TaskCommentDeletedCopyWithImpl(
+      _TaskCommentDeleted _value, $Res Function(_TaskCommentDeleted) _then)
+      : super(_value, (v) => _then(v as _TaskCommentDeleted));
+
+  @override
+  _TaskCommentDeleted get _value => super._value as _TaskCommentDeleted;
+
+  @override
+  $Res call({
+    Object? taskID = freezed,
+    Object? projectID = freezed,
+    Object? commentID = freezed,
+  }) {
+    return _then(_TaskCommentDeleted(
+      taskID: taskID == freezed
+          ? _value.taskID
+          : taskID // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectID: projectID == freezed
+          ? _value.projectID
+          : projectID // ignore: cast_nullable_to_non_nullable
+              as String,
+      commentID: commentID == freezed
+          ? _value.commentID
+          : commentID // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TaskCommentDeleted implements _TaskCommentDeleted {
+  const _$_TaskCommentDeleted(
+      {required this.taskID, required this.projectID, required this.commentID});
+
+  @override
+  final String taskID;
+  @override
+  final String projectID;
+  @override
+  final String commentID;
+
+  @override
+  String toString() {
+    return 'ProjectManagementEvent.taskCommentDeleted(taskID: $taskID, projectID: $projectID, commentID: $commentID)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TaskCommentDeleted &&
+            (identical(other.taskID, taskID) || other.taskID == taskID) &&
+            (identical(other.projectID, projectID) ||
+                other.projectID == projectID) &&
+            (identical(other.commentID, commentID) ||
+                other.commentID == commentID));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, taskID, projectID, commentID);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TaskCommentDeletedCopyWith<_TaskCommentDeleted> get copyWith =>
+      __$TaskCommentDeletedCopyWithImpl<_TaskCommentDeleted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String userID) projectsLoaded,
+    required TResult Function(String projectID) projectTasksLoaded,
+    required TResult Function(Task task, String projectID) taskCreated,
+    required TResult Function(Task task, String projectID) taskUpdated,
+    required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
+  }) {
+    return taskCommentDeleted(taskID, projectID, commentID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
+    TResult Function(Task task, String projectID)? taskCreated,
+    TResult Function(Task task, String projectID)? taskUpdated,
+    TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
+  }) {
+    return taskCommentDeleted?.call(taskID, projectID, commentID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
+    TResult Function(Task task, String projectID)? taskCreated,
+    TResult Function(Task task, String projectID)? taskUpdated,
+    TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
+    required TResult orElse(),
+  }) {
+    if (taskCommentDeleted != null) {
+      return taskCommentDeleted(taskID, projectID, commentID);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ProjectsLoaded value) projectsLoaded,
+    required TResult Function(_ProjectTasksLoaded value) projectTasksLoaded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_TaskUpdated value) taskUpdated,
+    required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
+  }) {
+    return taskCommentDeleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_TaskUpdated value)? taskUpdated,
+    TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
+  }) {
+    return taskCommentDeleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_TaskUpdated value)? taskUpdated,
+    TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
+    required TResult orElse(),
+  }) {
+    if (taskCommentDeleted != null) {
+      return taskCommentDeleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskCommentDeleted implements ProjectManagementEvent {
+  const factory _TaskCommentDeleted(
+      {required String taskID,
+      required String projectID,
+      required String commentID}) = _$_TaskCommentDeleted;
+
+  String get taskID;
+  String get projectID;
+  String get commentID;
+  @JsonKey(ignore: true)
+  _$TaskCommentDeletedCopyWith<_TaskCommentDeleted> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$TaskCommentAddedCopyWith<$Res> {
+  factory _$TaskCommentAddedCopyWith(
+          _TaskCommentAdded value, $Res Function(_TaskCommentAdded) then) =
+      __$TaskCommentAddedCopyWithImpl<$Res>;
+  $Res call({String taskID, String projectID, TaskComment comment});
+
+  $TaskCommentCopyWith<$Res> get comment;
+}
+
+/// @nodoc
+class __$TaskCommentAddedCopyWithImpl<$Res>
+    extends _$ProjectManagementEventCopyWithImpl<$Res>
+    implements _$TaskCommentAddedCopyWith<$Res> {
+  __$TaskCommentAddedCopyWithImpl(
+      _TaskCommentAdded _value, $Res Function(_TaskCommentAdded) _then)
+      : super(_value, (v) => _then(v as _TaskCommentAdded));
+
+  @override
+  _TaskCommentAdded get _value => super._value as _TaskCommentAdded;
+
+  @override
+  $Res call({
+    Object? taskID = freezed,
+    Object? projectID = freezed,
+    Object? comment = freezed,
+  }) {
+    return _then(_TaskCommentAdded(
+      taskID: taskID == freezed
+          ? _value.taskID
+          : taskID // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectID: projectID == freezed
+          ? _value.projectID
+          : projectID // ignore: cast_nullable_to_non_nullable
+              as String,
+      comment: comment == freezed
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as TaskComment,
+    ));
+  }
+
+  @override
+  $TaskCommentCopyWith<$Res> get comment {
+    return $TaskCommentCopyWith<$Res>(_value.comment, (value) {
+      return _then(_value.copyWith(comment: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_TaskCommentAdded implements _TaskCommentAdded {
+  const _$_TaskCommentAdded(
+      {required this.taskID, required this.projectID, required this.comment});
+
+  @override
+  final String taskID;
+  @override
+  final String projectID;
+  @override
+  final TaskComment comment;
+
+  @override
+  String toString() {
+    return 'ProjectManagementEvent.taskCommentAdded(taskID: $taskID, projectID: $projectID, comment: $comment)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TaskCommentAdded &&
+            (identical(other.taskID, taskID) || other.taskID == taskID) &&
+            (identical(other.projectID, projectID) ||
+                other.projectID == projectID) &&
+            (identical(other.comment, comment) || other.comment == comment));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, taskID, projectID, comment);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TaskCommentAddedCopyWith<_TaskCommentAdded> get copyWith =>
+      __$TaskCommentAddedCopyWithImpl<_TaskCommentAdded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String userID) projectsLoaded,
+    required TResult Function(String projectID) projectTasksLoaded,
+    required TResult Function(Task task, String projectID) taskCreated,
+    required TResult Function(Task task, String projectID) taskUpdated,
+    required TResult Function(String taskID, String projectID) taskDeleted,
+    required TResult Function(String taskID, String projectID, String commentID)
+        taskCommentDeleted,
+    required TResult Function(
+            String taskID, String projectID, TaskComment comment)
+        taskCommentAdded,
+  }) {
+    return taskCommentAdded(taskID, projectID, comment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
+    TResult Function(Task task, String projectID)? taskCreated,
+    TResult Function(Task task, String projectID)? taskUpdated,
+    TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
+  }) {
+    return taskCommentAdded?.call(taskID, projectID, comment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String userID)? projectsLoaded,
+    TResult Function(String projectID)? projectTasksLoaded,
+    TResult Function(Task task, String projectID)? taskCreated,
+    TResult Function(Task task, String projectID)? taskUpdated,
+    TResult Function(String taskID, String projectID)? taskDeleted,
+    TResult Function(String taskID, String projectID, String commentID)?
+        taskCommentDeleted,
+    TResult Function(String taskID, String projectID, TaskComment comment)?
+        taskCommentAdded,
+    required TResult orElse(),
+  }) {
+    if (taskCommentAdded != null) {
+      return taskCommentAdded(taskID, projectID, comment);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ProjectsLoaded value) projectsLoaded,
+    required TResult Function(_ProjectTasksLoaded value) projectTasksLoaded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_TaskUpdated value) taskUpdated,
+    required TResult Function(_TaskDeleted value) taskDeleted,
+    required TResult Function(_TaskCommentDeleted value) taskCommentDeleted,
+    required TResult Function(_TaskCommentAdded value) taskCommentAdded,
+  }) {
+    return taskCommentAdded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_TaskUpdated value)? taskUpdated,
+    TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
+  }) {
+    return taskCommentAdded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ProjectsLoaded value)? projectsLoaded,
+    TResult Function(_ProjectTasksLoaded value)? projectTasksLoaded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_TaskUpdated value)? taskUpdated,
+    TResult Function(_TaskDeleted value)? taskDeleted,
+    TResult Function(_TaskCommentDeleted value)? taskCommentDeleted,
+    TResult Function(_TaskCommentAdded value)? taskCommentAdded,
+    required TResult orElse(),
+  }) {
+    if (taskCommentAdded != null) {
+      return taskCommentAdded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskCommentAdded implements ProjectManagementEvent {
+  const factory _TaskCommentAdded(
+      {required String taskID,
+      required String projectID,
+      required TaskComment comment}) = _$_TaskCommentAdded;
+
+  String get taskID;
+  String get projectID;
+  TaskComment get comment;
+  @JsonKey(ignore: true)
+  _$TaskCommentAddedCopyWith<_TaskCommentAdded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

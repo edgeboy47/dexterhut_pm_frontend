@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dexter_pm_frontend/project_management/data/repository/repository_interface.dart';
 import 'package:dexter_pm_frontend/project_management/project/data/models/project.dart';
 import 'package:dexter_pm_frontend/project_management/tasks/data/models/task.dart';
+import 'package:dexter_pm_frontend/project_management/tasks/data/models/task_comment.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'project_management_event.dart';
@@ -39,17 +40,25 @@ class ProjectManagementBloc
       taskCreated: (event) async {
         emit(const ProjectManagementState.projectTasksLoadInProgress());
         await repository.createTask(event.task, event.projectID);
-        add(ProjectManagementEvent.projectTasksLoaded(event.projectID));
+        add(ProjectManagementEvent.projectTasksLoaded(projectID: event.projectID));
       },
       taskUpdated: (event) async {
-        emit(const ProjectManagementState.projectTasksLoadInProgress());
+        // emit(const ProjectManagementState.projectTasksLoadInProgress());
         await repository.updateTask(event.task, event.projectID);
-        add(ProjectManagementEvent.projectTasksLoaded(event.projectID));
+        add(ProjectManagementEvent.projectTasksLoaded(projectID: event.projectID));
       },
       taskDeleted: (event) async {
         emit(const ProjectManagementState.projectTasksLoadInProgress());
         await repository.deleteTask(event.taskID, event.projectID);
-        add(ProjectManagementEvent.projectTasksLoaded(event.projectID));
+        add(ProjectManagementEvent.projectTasksLoaded(projectID: event.projectID));
+      },
+      taskCommentAdded: (event) async {
+        await repository.addTaskComment(
+          event.projectID,
+          event.taskID,
+          event.comment,
+        );
+        add(ProjectManagementEvent.projectTasksLoaded(projectID: event.projectID));
       },
       orElse: () {},
     );

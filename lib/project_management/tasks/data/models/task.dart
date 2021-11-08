@@ -1,3 +1,4 @@
+import 'package:dexter_pm_frontend/project_management/tasks/data/models/task_comment.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'task.freezed.dart';
 part 'task.g.dart';
@@ -13,6 +14,7 @@ class Task with _$Task {
     List<String>? usersAssigned,
     bool? isInProgress,
     bool? isCompleted,
+    required List<TaskComment> comments,
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _Task;

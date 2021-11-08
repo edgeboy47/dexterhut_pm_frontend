@@ -29,6 +29,7 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
       id: '',
       name: '',
       usersAssigned: [],
+      comments: [],
       createdAt: DateTime.now(),
       updatedAt: DateTime.now(),
     );
@@ -122,8 +123,8 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
                         );
                         context.read<ProjectManagementBloc>().add(
                               ProjectManagementEvent.taskCreated(
-                                task,
-                                widget.projectID,
+                                task: task,
+                                projectID: widget.projectID,
                               ),
                             );
                         Navigator.of(context).pop();

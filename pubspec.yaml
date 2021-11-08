@@ -14,7 +14,7 @@ dependencies:
   dio: ^4.0.1
   flutter:
     sdk: flutter
-  flutter_bloc: ^7.3.1
+  flutter_bloc: ^7.3.3
   freezed_annotation: ^0.15.0
   http: ^0.13.4
   json_annotation: ^4.3.0

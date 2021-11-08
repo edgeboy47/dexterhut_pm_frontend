@@ -19,9 +19,11 @@ class ProjectListTile extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              context
-                  .read<ProjectManagementBloc>()
-                  .add(ProjectManagementEvent.projectTasksLoaded(project.id));
+              context.read<ProjectManagementBloc>().add(
+                    ProjectManagementEvent.projectTasksLoaded(
+                      projectID: project.id,
+                    ),
+                  );
               return ProjectDetailsPage(project: project);
             },
           ),
